@@ -1,0 +1,15 @@
+{
+  "name": "employee_database_system",
+  "version": "1.0.0",
+  "description": "A database system for employee managmeent",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "employee",
+    "management"
+  ],
+  "author": "Billie Tran",
+  "license": "ISC"
+}
