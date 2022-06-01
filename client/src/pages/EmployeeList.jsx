@@ -40,7 +40,6 @@ function EmployeeList() {
 
     return(
         <div>
-            
             <h1>Employee Database</h1>
             <h3>{currentYear}</h3>
             {/* Loading animation */}

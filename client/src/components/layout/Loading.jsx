@@ -1,5 +1,6 @@
 import './Loading.css';
 import loading from './assets/Loading.gif';
+
 function Loading() {
     return(
         <div>

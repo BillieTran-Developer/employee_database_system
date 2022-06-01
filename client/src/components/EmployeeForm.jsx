@@ -1,13 +1,18 @@
 import './EmployeeForm.css';
-import {useState} from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
+import { Form, Button } from 'react-bootstrap';
 
+ 
 function EmployeeForm() {
     // Employee variables
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [position, setPosition] = useState('');
     const [salary, setSalary] = useState(0);
+    // Used for redirect
+    const navigate = useNavigate();
 
     // Add employee to MySQL database
     const addEmployee = async (e) => {
@@ -25,32 +30,32 @@ function EmployeeForm() {
         } catch(err) {
             console.log(err);
         }
+        navigate(`/employees`)
     }
 
     return(
-        <div>
-            <h3>Add Employee</h3>
-            <form onSubmit={addEmployee}>
-                <label>
-                    <span>First Name:</span>
-                    <input type="text" onChange={(e) => setFirstName(e.target.value)}/> 
-                </label>
-                <label>
-                    <span>Last Name:</span>
-                    <input type="text" onChange={(e) => setLastName(e.target.value)}/>
-                </label>
-                <label>
-                    <span>Position:</span>
-                    <input type="text" onChange={(e) => setPosition(e.target.value)}/>
-                </label>
-                <label>
-                    <span>Salary:</span>
-                    <input type="number" onChange={(e) => setSalary(e.target.value)}/>
-                </label>
-                <button>
+        <div id='employeeForm'>
+            <Form onSubmit={addEmployee}>
+                <Form.Group controlID='firstName'>
+                    <Form.Label>First Name:</Form.Label>
+                    <Form.Control type="text" required onChange={(e) => setFirstName(e.target.value)}/>
+                </Form.Group>
+                <Form.Group controlID='lastName'>
+                    <Form.Label>Last Name:</Form.Label>
+                    <Form.Control type="text" required onChange={(e) => setLastName(e.target.value)}/>
+                </Form.Group>
+                <Form.Group controlID='position'>
+                    <Form.Label>Position:</Form.Label>
+                    <Form.Control type="text" required onChange={(e) => setPosition(e.target.value)}/>
+                </Form.Group>
+                <Form.Group controlID='salary'>
+                    <Form.Label>Salary:</Form.Label>
+                    <Form.Control type="text" required onChange={(e) => setSalary(e.target.value)}/>
+                </Form.Group>
+                <Button variant='success' type='submit' className='mt-4'>
                     Add Employee
-                </button>
-            </form>
+                </Button>
+            </Form>
         </div>
     );
 }

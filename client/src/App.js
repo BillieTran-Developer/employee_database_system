@@ -1,4 +1,7 @@
 import './App.css';
+// Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+// React Router 
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 // Pages Components
 import AddEmployee from './pages/AddEmployee';

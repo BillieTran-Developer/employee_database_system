@@ -1,6 +1,5 @@
 import './EmployeeItem.css';
 import { Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function EmployeeItem({employee}) {
     // Deconstructed employee object

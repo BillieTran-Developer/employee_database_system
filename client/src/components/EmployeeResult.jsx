@@ -1,6 +1,6 @@
 import './EmployeeResult.css';
-import { Table } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
+import { Table, Button } from 'react-bootstrap';
 import EmployeeItem from './EmployeeItem';
 
 function EmployeeResult({employeeList}) {
@@ -13,6 +13,10 @@ function EmployeeResult({employeeList}) {
                     <th>First Name</th>
                     <th>Position</th>
                     <th>Salary</th>
+                    <th></th>
+                    <Link to={`/add`}>
+                        <th><Button variant='success' size='sm'>+</Button></th>
+                    </Link>
                 </tr>
             </thead>
             <tbody>
