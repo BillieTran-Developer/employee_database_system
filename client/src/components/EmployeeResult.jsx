@@ -14,9 +14,11 @@ function EmployeeResult({employeeList}) {
                     <th>Position</th>
                     <th>Salary</th>
                     <th></th>
-                    <Link to={`/add`}>
-                        <th><Button variant='success' size='sm'>+</Button></th>
-                    </Link>
+                    <th>
+                        <Link to={`/add`}>
+                            <Button variant='success' size='sm'>+</Button>
+                        </Link>
+                    </th>
                 </tr>
             </thead>
             <tbody>

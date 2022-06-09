@@ -1,4 +1,6 @@
 import './EmployeeItem.css';
+import Axios from 'axios';
+import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 function EmployeeItem({employee}) {
@@ -10,6 +12,17 @@ function EmployeeItem({employee}) {
         position, 
         salary
     } = employee;
+
+     // Delete employee from database
+     const deleteEmployee = async (id) => {
+        try {
+            await Axios.delete(`http://localhost:3001/delete/${id}`);
+            // Reset employee list after employee deletion
+            console.log(`Employee: ${id} succesfully deleted`);
+        } catch(err) {
+            console.log(err);
+        }
+    }
     
     return(
         // Individual employee row
@@ -19,8 +32,12 @@ function EmployeeItem({employee}) {
             <td>{`${firstName}`}</td>
             <td>{`${position}`}</td>
             <td>{`$${salary}`}</td>
-            <td><Button variant='secondary' size='sm'>Edit</Button></td>
-            <td><Button variant='danger' size='sm'>X</Button></td>
+            <td>
+                <Link to={`/edit/${id}`}>
+                    <Button variant='secondary' size='sm'>Edit</Button>
+                </Link>
+            </td>
+            <td><Button variant='danger' size='sm' onClick={() => deleteEmployee(id)}>X</Button></td>
         </tr>
     )
 }

@@ -41,7 +41,61 @@ app.post('/add', (req, res) => {
         });
 });
 
-// Get Employees
+// Delete employee
+app.delete('/delete/:employeeId', (req, res) => {
+    // Retrieve employeeId param from URL path
+    const id = req.params.employeeId;
+    // Delete data from MySQL
+    db.query(`DELETE FROM employees WHERE id = ?`, id, (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+// Get single employee
+app.get('/edit/:employeeId', (req, res) => {
+    // Retrieve employeeId param from URL path
+    const employeeId = req.params.employeeId
+
+    //Get data from MySQL
+    db.query(`SELECT *  FROM employees WHERE id = ${employeeId}`, (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(result);
+            res.send(result);
+        }
+    });
+});
+
+// Update employee
+app.put('/update', (req, res) => {
+    const id = req.body.id;
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const position = req.body.position;
+    const salary = req.body.salary;
+    db.query(`
+        UPDATE employees SET 
+        last_name = ?, 
+        first_name = ?, 
+        position = ?, 
+        salary = ? 
+        WHERE id = ?`, 
+        [lastName, firstName, position, salary, id], 
+        (err, result) => {
+            if(err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        });
+});
+
+// Get employees list
 app.get('/employees', (req, res) => {
     // Get data from MySQL 
     db.query(`SELECT * FROM employees`, (err, result) => {
