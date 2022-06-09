@@ -1,7 +1,6 @@
 import './EmployeeForm.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Axios from 'axios';
+import EmployeeDataService from '../services/employee.service';
 import { Form, Button } from 'react-bootstrap';
 
  
@@ -12,31 +11,9 @@ function EmployeeForm() {
     const [position, setPosition] = useState('');
     const [salary, setSalary] = useState(0);
 
-    // Used for redirect
-    const navigate = useNavigate();
-
-    // Add employee to MySQL database
-    const addEmployee = async (e) => {
-        e.preventDefault();
-        // Employee object
-        const employee = {
-            firstName,
-            lastName,
-            position,
-            salary
-        }
-        // MySQL connection
-        try {
-            const response = await Axios.post(`http://localhost:3001/add`, employee);
-        } catch(err) {
-            console.log(err);
-        }
-        navigate(`/employees`)
-    }
-
     return(
         <div id='employeeForm'>
-            <Form onSubmit={addEmployee}>
+            <Form onSubmit={() => EmployeeDataService.addEmployee(firstName, lastName, position, salary)}>
                 <Form.Group controlID='firstName'>
                     <Form.Label>First Name:</Form.Label>
                     <Form.Control type="text" onChange={(e) => setFirstName(e.target.value)} required/>

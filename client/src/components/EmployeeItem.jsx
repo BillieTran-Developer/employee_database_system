@@ -1,5 +1,5 @@
 import './EmployeeItem.css';
-import Axios from 'axios';
+import EmployeeDataService from '../services/employee.service';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
@@ -13,17 +13,6 @@ function EmployeeItem({employee}) {
         salary
     } = employee;
 
-     // Delete employee from database
-     const deleteEmployee = async (id) => {
-        try {
-            await Axios.delete(`http://localhost:3001/delete/${id}`);
-            // Reset employee list after employee deletion
-            console.log(`Employee: ${id} succesfully deleted`);
-        } catch(err) {
-            console.log(err);
-        }
-    }
-    
     return(
         // Individual employee row
         <tr key={id}>
@@ -37,7 +26,7 @@ function EmployeeItem({employee}) {
                     <Button variant='secondary' size='sm'>Edit</Button>
                 </Link>
             </td>
-            <td><Button variant='danger' size='sm' onClick={() => deleteEmployee(id)}>X</Button></td>
+            <td><Button variant='danger' size='sm' onClick={() => EmployeeDataService.deleteEmployee(id)}>X</Button></td>
         </tr>
     )
 }

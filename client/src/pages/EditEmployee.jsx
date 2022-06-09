@@ -1,5 +1,5 @@
 import './AddEmployee.css';
-import Axios from 'axios';
+import EmployeeDataService from '../services/employee.service';
 import {useEffect, useState} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
@@ -10,29 +10,17 @@ function EditEmployee() {
     const [employeeLoaded, setEmployeeLoaded] = useState(false);
     // Used for previous page
     const navigate = useNavigate();
-
+    // Use for retrieving params
     const params = useParams();
-    
-    // Get employee
-    const getEmployee = async () => {
-        // Retreive employeId param from URL
-        const employeeId = params.employeeId;
-        try {
-            // Get data from backend
-            const response = await Axios.get(`http://localhost:3001/edit/${employeeId}`);
-            return {success: true, data: response.data}
-        } catch(err) {
-            console.log(err);
-            return {success: false}
-        }
-    }
 
     useEffect(() => {
+        // Employee id from params
+        const id = params.employeeId;
         (async () => {
             // Set load state
             setEmployeeLoaded(false);
             // Get employee
-            let res = await getEmployee();
+            let res = await EmployeeDataService.getEmployee(id);
             // When retrieving data is successful
             if(res.success) {
                 // Set employee
