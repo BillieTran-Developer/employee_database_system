@@ -1,5 +1,5 @@
 import './EditEmployeeForm.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import EmployeeDataService from '../services/employee.service.js'
 import { Form, Button } from 'react-bootstrap';
@@ -10,18 +10,37 @@ function EditEmployeeForm({employee}) {
     const params = useParams();
     // Retreive employeId param from URL
     const id = params.employeeId;
-    // Employee variables
+    // Employee
+    const [editEmployee, setEditEmployee] = useState();
+    const [employeeLoaded, setEmployeeLoaded] = useState(false);
+    // Edited Employee variables
     const [editFirstName, setEditFirstName] = useState('');
     const [editLastName, setEditLastName] = useState('');
     const [editPosition, setEditPosition] = useState('');
     const [editSalary, setEditSalary] = useState(0);
     
+    useEffect(() => {
+        (async () => {
+            // Set load state
+            setEmployeeLoaded(false);
+            // Set employee to be edited
+            let res = await EmployeeDataService.getEmployee(id);
+            console.log('useEffect',res)
+            if (res) {
+                // Set employee data
+                console.log(res.data);
+                setEmployeeLoaded(res.data);
+                // Set load state
+                setEmployeeLoaded(true);
+            }
+        })();      
+    }, []);
     return(
         <div id='editEmployeeForm'>
             <Form>
                 <Form.Group controlID='firstName'>
                     <Form.Label>First Name:</Form.Label>
-                    <Form.Control type="text" onChange={(e) => setEditFirstName(e.target.value)} required/>
+                    <Form.Control type="text" value={`${editEmployee}`} onChange={(e) => setEditFirstName(e.target.value)} required/>
                 </Form.Group>
                 <Form.Group controlID='lastName'>
                     <Form.Label>Last Name:</Form.Label>

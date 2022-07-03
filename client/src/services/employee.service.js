@@ -19,7 +19,6 @@ class EmployeeDataService {
         }
     }
 
-
     // Get Employees
     getAll = async () => {
         try {
