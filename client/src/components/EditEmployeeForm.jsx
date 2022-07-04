@@ -1,6 +1,6 @@
 import './EditEmployeeForm.css';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import EmployeeDataService from '../services/employee.service.js'
 import { Form, Button } from 'react-bootstrap';
 
@@ -8,6 +8,8 @@ import { Form, Button } from 'react-bootstrap';
 function EditEmployeeForm({employee}) {
     // Used for params
     const params = useParams();
+    // Used for navigation
+    const navigate = useNavigate();
     // Retreive employeId param from URL
     const id = params.employeeId;
     // Employee
@@ -28,34 +30,46 @@ function EditEmployeeForm({employee}) {
             console.log('useEffect',res)
             if (res) {
                 // Set employee data
-                setEditEmployee(res.data);
+                const employee = res.data[0]
+                setEditEmployee(employee);
+                setEditFirstName(employee.first_name);
+                setEditLastName(employee.last_name);
+                setEditPosition(employee.position);
+                setEditSalary(employee.salary);
                 // Set load state
                 setEmployeeLoaded(true);
             }
         })();      
     }, []);
+    
+        // Submit Handler
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            EmployeeDataService.updateEmployee(id, editLastName, editFirstName, editPosition, editSalary);
+            navigate('/employees');
+        }
 
     return(
         <div id='editEmployeeForm'>
             { employeeLoaded && (
-                <Form>
+                <Form onSubmit={handleSubmit}>
                 <Form.Group controlID='firstName'>
                     <Form.Label>First Name:</Form.Label>
-                    <Form.Control type="text" value={`${editEmployee[0].first_name}`} onChange={(e) => setEditFirstName(e.target.value)} required/>
+                    <Form.Control type="text" value={editFirstName} onChange={(e) => setEditFirstName(e.target.value)} required/>
                 </Form.Group>
                 <Form.Group controlID='lastName'>
                     <Form.Label>Last Name:</Form.Label>
-                    <Form.Control type="text" value={`${editEmployee[0].last_name}`} onChange={(e) => setEditLastName(e.target.value)} required/>
+                    <Form.Control type="text" value={editLastName} onChange={(e) => setEditLastName(e.target.value)} required/>
                 </Form.Group>
                 <Form.Group controlID='position'>
                     <Form.Label>Position:</Form.Label>
-                    <Form.Control type="text" value={`${editEmployee[0].position}`} onChange={(e) => setEditPosition(e.target.value)} required/>
+                    <Form.Control type="text" value={editPosition} onChange={(e) => setEditPosition(e.target.value)} required/>
                 </Form.Group>
                 <Form.Group controlID='salary'>
                     <Form.Label>Salary:</Form.Label>
-                    <Form.Control type="text" value={`${editEmployee[0].salary}`}  onChange={(e) => setEditSalary(e.target.value)} required/>
+                    <Form.Control type="text" value={editSalary} onChange={(e) => setEditSalary(e.target.value)} required/>
                 </Form.Group>
-                <Button variant='success' type='submit' className='mt-4' onClick={() => EmployeeDataService.updateEmployee(id, editLastName, editFirstName, editPosition, editSalary)}>
+                <Button variant='success' type='submit' className='mt-4'>
                     Edit Employee
                 </Button>
             </Form>

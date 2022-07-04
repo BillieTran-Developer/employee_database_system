@@ -6,17 +6,18 @@ import { Form, Button } from 'react-bootstrap';
 
  
 function EmployeeForm() {
+    // Used for navigation
+    const navigate = useNavigate();
     // Employee variables
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [position, setPosition] = useState('');
     const [salary, setSalary] = useState(0);
-
-    const navigate = useNavigate();
-
+    
+    // Submit Handler
     const handleSubmit = (e) => {
         e.preventDefault();
-        EmployeeDataService.addEmployee(firstName, lastName, position, salary)
+        EmployeeDataService.addEmployee(firstName, lastName, position, salary);
         navigate('/employees');
     }
 
