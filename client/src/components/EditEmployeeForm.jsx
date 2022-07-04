@@ -28,36 +28,38 @@ function EditEmployeeForm({employee}) {
             console.log('useEffect',res)
             if (res) {
                 // Set employee data
-                console.log(res.data);
-                setEmployeeLoaded(res.data);
+                setEditEmployee(res.data);
                 // Set load state
                 setEmployeeLoaded(true);
             }
         })();      
     }, []);
+
     return(
         <div id='editEmployeeForm'>
-            <Form>
+            { employeeLoaded && (
+                <Form>
                 <Form.Group controlID='firstName'>
                     <Form.Label>First Name:</Form.Label>
-                    <Form.Control type="text" value={`${editEmployee}`} onChange={(e) => setEditFirstName(e.target.value)} required/>
+                    <Form.Control type="text" value={`${editEmployee[0].first_name}`} onChange={(e) => setEditFirstName(e.target.value)} required/>
                 </Form.Group>
                 <Form.Group controlID='lastName'>
                     <Form.Label>Last Name:</Form.Label>
-                    <Form.Control type="text" onChange={(e) => setEditLastName(e.target.value)} required/>
+                    <Form.Control type="text" value={`${editEmployee[0].last_name}`} onChange={(e) => setEditLastName(e.target.value)} required/>
                 </Form.Group>
                 <Form.Group controlID='position'>
                     <Form.Label>Position:</Form.Label>
-                    <Form.Control type="text"  onChange={(e) => setEditPosition(e.target.value)} required/>
+                    <Form.Control type="text" value={`${editEmployee[0].position}`} onChange={(e) => setEditPosition(e.target.value)} required/>
                 </Form.Group>
                 <Form.Group controlID='salary'>
                     <Form.Label>Salary:</Form.Label>
-                    <Form.Control type="text"  onChange={(e) => setEditSalary(e.target.value)} required/>
+                    <Form.Control type="text" value={`${editEmployee[0].salary}`}  onChange={(e) => setEditSalary(e.target.value)} required/>
                 </Form.Group>
                 <Button variant='success' type='submit' className='mt-4' onClick={() => EmployeeDataService.updateEmployee(id, editLastName, editFirstName, editPosition, editSalary)}>
                     Edit Employee
                 </Button>
             </Form>
+            )}
         </div>
     );
 }

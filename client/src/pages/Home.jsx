@@ -9,7 +9,7 @@ function Home() {
                 <Link to={`/add`}>
                     <Button variant='secondary'>Add Employee</Button>
                 </Link>
-                <Link to={`/`}>
+                <Link to={`/search`}>
                     <Button variant='secondary'>Search Employees</Button>
                 </Link>
                 <Link to={`/employees`}>

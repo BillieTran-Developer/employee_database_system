@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import EmployeeList from './pages/EmployeeList';
 import AddEmployee from './pages/AddEmployee';
 import EditEmployee from './pages/EditEmployee';
-
+import SearchEmployees from './pages/SearchEmployees'
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
           <Route path='/employees' element={<EmployeeList/>}/>
           <Route path='/add' element={<AddEmployee/>} />
           <Route path='/edit/:employeeId' element={<EditEmployee/>}/>
+          <Route path='/search' element={<SearchEmployees/>}/>
         </Routes>
       </Router>
     </div>
