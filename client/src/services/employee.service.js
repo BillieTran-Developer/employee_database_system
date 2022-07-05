@@ -1,5 +1,4 @@
 import Axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 class EmployeeDataService {
      // Add employee to MySQL database

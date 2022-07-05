@@ -3,7 +3,7 @@ import EmployeeDataService from '../services/employee.service';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
-function EmployeeItem({employee}) {
+function EmployeeItem({employee, deleteEmployee}) {
     // Deconstructed employee object
     const {
         id, 
@@ -26,7 +26,7 @@ function EmployeeItem({employee}) {
                     <Button variant='secondary' size='sm'>Edit</Button>
                 </Link>
             </td>
-            <td><Button variant='danger' size='sm' onClick={() => EmployeeDataService.deleteEmployee(id)}>X</Button></td>
+            <td><Button variant='danger' size='sm' onClick={() => deleteEmployee(id)}>X</Button></td>
         </tr>
     )
 }

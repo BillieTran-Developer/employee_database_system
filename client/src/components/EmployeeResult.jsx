@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Table, Button } from 'react-bootstrap';
 import EmployeeItem from './EmployeeItem';
 
-function EmployeeResult({employeeList}) {
+function EmployeeResult({employeeList, deleteEmployee}) {
     return(
         <Table striped bordered hover>
             <thead>
@@ -25,7 +25,7 @@ function EmployeeResult({employeeList}) {
                 {
                     // Loading employees from list
                     employeeList.map(
-                        employee => { return <EmployeeItem key={employee.id} employee={employee}/>}
+                        employee => { return <EmployeeItem key={employee.id} employee={employee} deleteEmployee={deleteEmployee}/>}
                     )
                 }
             </tbody>

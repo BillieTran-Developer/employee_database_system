@@ -25,7 +25,15 @@ function EmployeeList() {
           }
         })();
       }, []);
-
+    
+    // Delete employee and rerender employeeList 
+    const deleteEmployee = (id) => {
+      EmployeeDataService.deleteEmployee(id);
+      setEmployeeList(employeeList.filter(employee => {
+        return employee.id !== id;
+      }))
+    }
+      
     return(
         <div>
             <h1>Employee Database</h1>
@@ -36,7 +44,7 @@ function EmployeeList() {
             }
             {/* Employee list */}
             {
-               listLoaded && <EmployeeResult employeeList={employeeList}/> 
+               listLoaded && <EmployeeResult employeeList={employeeList} deleteEmployee={deleteEmployee}/> 
             }
         </div>
     );

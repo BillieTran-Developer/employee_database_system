@@ -70,7 +70,7 @@ function EditEmployeeForm({employee}) {
                     <Form.Control type="text" value={editSalary} onChange={(e) => setEditSalary(e.target.value)} required/>
                 </Form.Group>
                 <Button variant='success' type='submit' className='mt-4'>
-                    Edit Employee
+                    Update
                 </Button>
             </Form>
             )}
