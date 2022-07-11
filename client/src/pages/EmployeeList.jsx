@@ -1,5 +1,7 @@
 import './EmployeeList.css'
 import {useEffect, useState} from 'react';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import EmployeeDataService from '../services/employee.service.js'; 
 import EmployeeResult from '../components/EmployeeResult';
 import Loading from '../components/layout/Loading';
@@ -38,6 +40,9 @@ function EmployeeList() {
         <div>
             <h1>Employee Database</h1>
             <h3>{currentYear}</h3>
+            <Link to={`/`}>
+              <Button>Home</Button>
+            </Link>
             {/* Loading animation */}
             {
                 !listLoaded && <Loading/>

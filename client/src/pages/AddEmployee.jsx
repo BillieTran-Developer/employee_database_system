@@ -9,9 +9,11 @@ function AddEmployee() {
     
     return(
         <div>
-            <h3 className='mt-3 mb-4'>Add Employee</h3>
-            <EmployeeForm/>
-            <Button className='mt-3 btn-secondary' onClick={() => navigate(-1)}>Go Back</Button>
+            <div id='employeeContainer'>
+                <h3 className='mt-3 mb-4 h1'>Add Employee</h3>
+                <EmployeeForm/>
+                <button className='retroButton mt-5' onClick={() => navigate(-1)}>Go Back</button>
+            </div>
         </div>
     );
 }
