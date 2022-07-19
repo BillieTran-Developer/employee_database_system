@@ -2,7 +2,7 @@ import './EmployeeForm.css';
 import { useState } from 'react';
 import EmployeeDataService from '../services/employee.service';
 import { useNavigate } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Col, Row } from 'react-bootstrap';
 
  
 function EmployeeForm() {
@@ -24,23 +24,28 @@ function EmployeeForm() {
     return(
         <div id='employeeForm'>
             <Form onSubmit={handleSubmit}>
-                <Form.Group controlID='firstName'>
-                    <Form.Label>First Name:</Form.Label>
-                    <Form.Control type="text" onChange={(e) => setFirstName(e.target.value)} required/>
-                </Form.Group>
-                <Form.Group controlID='lastName'>
-                    <Form.Label>Last Name:</Form.Label>
-                    <Form.Control type="text" onChange={(e) => setLastName(e.target.value)} required/>
-                </Form.Group>
-                <Form.Group controlID='position'>
-                    <Form.Label>Position:</Form.Label>
-                    <Form.Control type="text"  onChange={(e) => setPosition(e.target.value)} required/>
-                </Form.Group>
-                <Form.Group controlID='salary'>
-                    <Form.Label>Salary:</Form.Label>
-                    <Form.Control type="text"  onChange={(e) => setSalary(e.target.value)} required/>
-                </Form.Group>
-                <Button variant='success' type='submit' className='mt-4'>
+                <Row className='mb-3'>
+                    <Form.Group as={Col} controlID='firstName'>
+                        <Form.Control type="text" placeholder='First Name' className='textarea' onChange={(e) => setFirstName(e.target.value)} required/>
+                    </Form.Group>
+                    <Form.Group as={Col} controlID='lastName'>
+                        <Form.Control type="text" placeholder='Last Name' className='textarea' onChange={(e) => setLastName(e.target.value)} required/>
+                    </Form.Group>
+                </Row>
+                <Row>
+                    <Form.Group as={Col} xs={9} controlId="position" className='mb-3'>
+                        <Form.Select className='fw-bold'>
+                            <option>Cashier</option>
+                            <option>Chef</option>
+                            <option>Waiter</option>
+                            <option>Janitor</option>
+                        </Form.Select>
+                    </Form.Group>
+                    <Form.Group as={Col} controlID='salary' className='mb-3'>
+                        <Form.Control type="text" placeholder='Salary' onChange={(e) => setSalary(e.target.value)} required/>
+                    </Form.Group>
+                </Row>
+                <Button variant='outline-primary fw-bold' type='submit' className='mt-4'>
                     Add Employee
                 </Button>
             </Form>

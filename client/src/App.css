@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+/* Overrides Bootstrap styles */
+
+/* Add/Edit Form */
+form .form-control:focus{
+  border-color: #ced4da;
+  box-shadow: none;
+}
+
+form .form-select {
+  border-radius: 0;
+}
+
+form .form-select option {
+  font-weight: bold;
+}
+
+form .form-select:focus {
+  border-color: #ced4da;
+  box-shadow: none;
+}
+
+form .btn {
+  border-radius: 0;
+}

@@ -1,4 +1,4 @@
-import './AddEmployee.css';
+import './EditEmployee.css';
 import EmployeeDataService from '../services/employee.service';
 import {useEffect, useState} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -32,12 +32,14 @@ function EditEmployee() {
     }, []);
     
     return(
-        <div>
-            <h3 className='mt-3 mb-4'>Edit Employee</h3>
-            {
-                employee && <EditEmployeeForm employee={employee}/>
-            }
-            <Button className='mt-3 btn-secondary' onClick={() => navigate(-1)}>Go Back</Button>
+        <div id='editFormContainer' className='d-flex align-items-center justify-content-center vh-100'>
+            <div>
+                <h3 className='mt-3 mb-4 h1 text-light'>Edit Employee</h3>
+                {
+                    employee && <EditEmployeeForm employee={employee}/>
+                }
+                <button id='editBackButton' className='fs-4 mt-5' onClick={() => navigate(-1)}>Back</button>
+            </div>
         </div>
     );
 }

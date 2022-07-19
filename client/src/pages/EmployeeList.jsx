@@ -41,7 +41,7 @@ function EmployeeList() {
             <h1>Employee Database</h1>
             <h3>{currentYear}</h3>
             <Link to={`/`}>
-              <Button>Home</Button>
+              <Button variant='outline-primary' className='m-3'>Home</Button>
             </Link>
             {/* Loading animation */}
             {

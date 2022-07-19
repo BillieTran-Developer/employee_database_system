@@ -8,17 +8,19 @@ function Home() {
         <div id='mainContainer' className='d-flex align-items-center justify-content-center vh-100'>
             <div>
                 <ParticleBackground/>
-                <div id='optionContainer'>
-                    <p className='fs-2 text-white mb-5'>Employee Database</p> 
-                    <div className='btn-group-vertical gap-4 col-sm-6'>
+                <div>
+                    <p className='fs-1 mb-3 text-light fw-bold'>Employee Database</p> 
+                </div>
+                <div id='optionContainer' className='gradientBorder'>
+                    <div className='btn-group-vertical gap-5'>
                         <Link to={`/add`}>
-                            <Button variant='outline-danger' className='btn-lg btn-block'>Add Employee</Button>
+                            <Button id='addButton' className='btn-lg btn-block fill'>Add Employee</Button>
                         </Link>
                         <Link to={`/search`}>
-                            <Button variant='outline-warning' className='btn-lg btn-block'>Search Employees</Button>
+                            <Button id='searchButton' className='btn-lg btn-block fill'>Search Employees</Button>
                         </Link>
                         <Link to={`/employees`}>
-                            <Button variant='outline-info' className='btn-lg btn-block'>Employee List</Button>
+                            <Button id='listButton' className='btn-lg btn-block fill'>Employee List</Button>
                         </Link>
                     </div>
                 </div>

@@ -8,11 +8,11 @@ function AddEmployee() {
     const navigate = useNavigate();
     
     return(
-        <div>
-            <div id='employeeContainer'>
-                <h3 className='mt-3 mb-4 h1'>Add Employee</h3>
+        <div id='addFormContainer' className='form d-flex align-items-center justify-content-center vh-100'>
+            <div>
+                <h3 className='mt-3 mb-4 h1 text-light'>Add Employee</h3>
                 <EmployeeForm/>
-                <button className='retroButton mt-5' onClick={() => navigate(-1)}>Go Back</button>
+                <button id='addBackButton' className='fs-4 mt-5' onClick={() => navigate(-1)}>Back</button>
             </div>
         </div>
     );

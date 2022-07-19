@@ -1,0 +1,19 @@
+#addFormContainer {
+    background-color: #404040;
+}
+
+#addBackButton {
+    color: #fff;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    -ms-transition: -ms-transform .8s ease-in-out;
+    transition: transform .8s ease-in-out;
+}
+
+#addBackButton:hover {
+    transform: rotate(360deg) scale(2);
+    -ms-transform: rotate(360deg) scale(2);
+    -webkit-transform: rotate(360deg) scale(2);
+}
