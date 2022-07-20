@@ -11,7 +11,7 @@ function Home() {
                 <div>
                     <p className='fs-1 mb-3 text-light fw-bold'>Employee Database</p> 
                 </div>
-                <div id='optionContainer' className='gradientBorder'>
+                <div id='optionContainer'>
                     <div className='btn-group-vertical gap-5'>
                         <Link to={`/add`}>
                             <Button id='addButton' className='btn-lg btn-block fill'>Add Employee</Button>
