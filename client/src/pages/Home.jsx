@@ -2,12 +2,13 @@ import './Home.css';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import ParticleBackground from '../components/ParticleBackground/ParticleBackground';
+import ParticlePresetBigCircles from '../components/ParticleBackground/ParticlePresetBigCircles';
 
 function Home() {
     return(
         <div id='mainContainer' className='d-flex align-items-center justify-content-center vh-100'>
             <div>
-                <ParticleBackground/>
+                <ParticlePresetBigCircles/>
                 <div>
                     <p className='fs-1 mb-3 text-light fw-bold'>Employee Database</p> 
                 </div>

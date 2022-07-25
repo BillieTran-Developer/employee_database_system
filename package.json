@@ -11,5 +11,9 @@
     "management"
   ],
   "author": "Billie Tran",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "tsparticles-engine": "^2.1.3",
+    "tsparticles-preset-big-circles": "^2.1.3"
+  }
 }
