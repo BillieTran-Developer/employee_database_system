@@ -53,7 +53,7 @@ function EditEmployeeForm({employee}) {
         <div id='editEmployeeForm'>
             { employeeLoaded && (
                 <Form onSubmit={handleSubmit}>
-                    <Row className='mb-3'>
+                    <Row>
                         <Form.Group as={Col} controlID='firstName'>
                             <Form.Control type="text" placeholder='First Name' value={editFirstName} className='textarea' onChange={(e) => setEditFirstName(e.target.value)} required/>
                         </Form.Group>
@@ -62,7 +62,7 @@ function EditEmployeeForm({employee}) {
                         </Form.Group>
                     </Row>
                     <Row>
-                        <Form.Group as={Col} xs={9} controlId="position" className='mb-3'>
+                        <Form.Group as={Col} xs={9} controlId="position" className='mt-4 mb-4'>
                             <Form.Select className='fw-bold'>
                                 <option>Cashier</option>
                                 <option>Chef</option>
@@ -71,7 +71,10 @@ function EditEmployeeForm({employee}) {
                             </Form.Select>
                         </Form.Group>
                         <Form.Group as={Col} controlID='salary' className='mb-3'>
-                            <Form.Control type="text" placeholder='Salary' value={editSalary} onChange={(e) => setEditSalary(e.target.value)} required/>
+                        <div id='editEmployeeSalary' className='input-group mb-3'>
+                            <span class="input-group-text">$</span>
+                            <Form.Control type="number" placeholder='Salary' value={editSalary} onChange={(e) => setEditSalary(e.target.value)} required/>
+                        </div>
                         </Form.Group>
                     </Row>
                     <Button variant='outline-warning fw-bold' type='submit' className='mt-4'>

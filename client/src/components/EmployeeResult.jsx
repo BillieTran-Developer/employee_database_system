@@ -13,10 +13,10 @@ function EmployeeResult({employeeList, deleteEmployee}) {
                     <th>First Name</th>
                     <th>Position</th>
                     <th>Salary</th>
-                    <th></th>
-                    <th>
+                    <th>Edit</th>
+                    <th className='th p-0'>
                         <Link to={`/add`}>
-                            <Button variant='success' size='sm'>+</Button>
+                            <Button variant='success' size='sm' id='addButton' className='dbCellHeaderButton'>Add</Button>
                         </Link>
                     </th>
                 </tr>

@@ -21,12 +21,12 @@ function EmployeeItem({employee, deleteEmployee}) {
             <td>{`${firstName}`}</td>
             <td>{`${position}`}</td>
             <td>{`$${salary}`}</td>
-            <td>
+            <td className='td p-0'>
                 <Link to={`/edit/${id}`}>
-                    <Button variant='secondary' size='sm'>Edit</Button>
+                    <Button variant='secondary' size='sm' className='dbCellButton '>Edit</Button>
                 </Link>
             </td>
-            <td><Button variant='danger' size='sm' onClick={() => deleteEmployee(id)}>X</Button></td>
+            <td className='td p-0'><Button variant='danger' size='sm' className='dbCellButton  p-0' onClick={() => deleteEmployee(id)}>Delete</Button></td>
         </tr>
     )
 }

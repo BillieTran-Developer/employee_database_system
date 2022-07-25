@@ -1,0 +1,13 @@
+thead {
+    background: #fff;
+}
+.th {
+    padding: 0;
+    height: inherit;
+}
+
+.dbCellHeaderButton {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}

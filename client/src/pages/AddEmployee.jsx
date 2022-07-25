@@ -1,6 +1,5 @@
 import './AddEmployee.css';
 import { useNavigate } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
 import EmployeeForm from "../components/EmployeeForm";
 
 function AddEmployee() {

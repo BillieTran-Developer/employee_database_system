@@ -24,7 +24,7 @@ function EmployeeForm() {
     return(
         <div id='employeeForm'>
             <Form onSubmit={handleSubmit}>
-                <Row className='mb-3'>
+                <Row>
                     <Form.Group as={Col} controlID='firstName'>
                         <Form.Control type="text" placeholder='First Name' className='textarea' onChange={(e) => setFirstName(e.target.value)} required/>
                     </Form.Group>
@@ -33,7 +33,7 @@ function EmployeeForm() {
                     </Form.Group>
                 </Row>
                 <Row>
-                    <Form.Group as={Col} xs={9} controlId="position" className='mb-3'>
+                    <Form.Group as={Col} xs={9} controlId="position" className='mt-4 mb-4'>
                         <Form.Select className='fw-bold'>
                             <option>Cashier</option>
                             <option>Chef</option>
@@ -42,7 +42,10 @@ function EmployeeForm() {
                         </Form.Select>
                     </Form.Group>
                     <Form.Group as={Col} controlID='salary' className='mb-3'>
-                        <Form.Control type="text" placeholder='Salary' onChange={(e) => setSalary(e.target.value)} required/>
+                        <div id='employeeSalary' className='input-group mb-3'>
+                            <span class="input-group-text">$</span>
+                            <Form.Control type="number" placeholder='Salary' onChange={(e) => setSalary(e.target.value)} required/>
+                        </div>
                     </Form.Group>
                 </Row>
                 <Button variant='outline-primary fw-bold' type='submit' className='mt-4'>

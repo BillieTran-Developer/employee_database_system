@@ -1,0 +1,9 @@
+#dataContainer {
+    background: #c5c5c5;
+    min-height: 100vh;
+}
+
+#dataContainer #homeButton {
+    border-radius: 0;
+}
+
