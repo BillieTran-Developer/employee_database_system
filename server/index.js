@@ -108,14 +108,23 @@ app.get('/employees', (req, res) => {
 app.get('/searchresults', (req, res) => {
     // Retrieve name param from query
     const firstName = req.query.first_name;
-    const lastName = req.query.last_name
+    const lastName = req.query.last_name;
+    const position = req.query.position;
+
     // Get data from MySQL
-    db.query(`SELECT * FROM employees WHERE (first_name='${firstName}' AND last_name='${lastName}') OR 
-    first_name='${firstName}' OR 
-    last_name='${lastName}'`, 
-    (err, result) => {
-        err ? console.log(err) : res.send(result);
-    });
+    if(firstName || lastName) {
+        db.query(`SELECT * FROM employees WHERE (first_name='${firstName}' AND last_name='${lastName}') OR 
+        first_name='${firstName}' OR 
+        last_name='${lastName}'`, 
+        (err, result) => {
+            err ? console.log(err) : res.send(result);
+        });
+    } else if(position) {
+        db.query(`SELECT * FROM employees WHERE position='${position}'`,
+        (err, result) => {
+            err ? console.log(err) : res.send(result);
+        });
+    }
 });
 
 // Set port, listen for requests

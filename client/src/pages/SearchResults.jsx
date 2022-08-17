@@ -14,6 +14,7 @@ function SearchResults() {
     // Retrieve query params
     const firstName = params.get('first_name');
     const lastName = params.get('last_name');
+    const position = params.get('position');
 
     useEffect (() => { 
         (async () => {
@@ -28,6 +29,11 @@ function SearchResults() {
                 res = await EmployeeDataService.getNameEmployee(firstName);
             } else if(lastName) {
                 res = await EmployeeDataService.getNameEmployee('',lastName);
+            } else if(position) {
+                console.log('position')
+                res = await EmployeeDataService.getNameEmployee('','', position);
+                console.log('position: after')
+                console.log(res);
             }
             // When retrieving data is successful
             if (res.success) {
@@ -47,7 +53,7 @@ function SearchResults() {
 
     return(
         <div>
-            {firstName && <p className='h2'>Search Result for Employee Named: {`${firstName}`}</p>}
+            {(firstName || lastName) && <p className='h2'>Search Result for Employee Named: {`${firstName} ${lastName}`}</p>}
             { listLoaded && <EmployeeResult employeeList={searchEmployeeList} delete={deleteEmployee}/> }
         </div>
     );

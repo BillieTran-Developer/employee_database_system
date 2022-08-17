@@ -2,7 +2,6 @@ import './SearchByName.css';
 import { useState } from 'react';
 import { useNavigate, createSearchParams } from 'react-router-dom';
 import { Form, Button, Row, Col } from 'react-bootstrap';
-import SearchResults from '../pages/SearchResults';
 
 function SearchByName() {
     const [firstName, setFirstName] = useState('');
