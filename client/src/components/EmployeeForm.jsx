@@ -34,7 +34,8 @@ function EmployeeForm() {
                 </Row>
                 <Row>
                     <Form.Group as={Col} xs={9} controlId="position" className='mt-4 mb-4'>
-                        <Form.Select className='fw-bold'>
+                        <Form.Select className='fw-bold' onChange={e => setPosition(e.target.value)}>
+                            <option value="none" selected disabled hidden>Select an Position</option>
                             <option>Cashier</option>
                             <option>Chef</option>
                             <option>Waiter</option>

@@ -8,11 +8,9 @@ function Home() {
     return(
         <div id='mainContainer' className='d-flex align-items-center justify-content-center vh-100'>
             <div>
-                <ParticlePresetBigCircles/>
-                <div>
-                    <p className='fs-1 mb-3 text-light fw-bold'>Employee Database</p> 
-                </div>
+                <ParticleBackground/>
                 <div id='optionContainer'>
+                    <p className='fs-1 mb-5 text-light fw-bold'>Employee Database</p> 
                     <div className='btn-group-vertical gap-5'>
                         <Link to={`/add`}>
                             <Button id='addButton' className='btn-lg btn-block fill'>Add Employee</Button>

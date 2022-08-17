@@ -1,6 +1,6 @@
 import './EditEmployee.css';
 import EmployeeDataService from '../services/employee.service';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import EditEmployeeForm from "../components/EditEmployeeForm";
 

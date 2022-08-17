@@ -1,5 +1,8 @@
 #addFormContainer {
     background-color: #c5c5c5;
+    background: url('../components/layout/assets/gradienta.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 #addBackButton {

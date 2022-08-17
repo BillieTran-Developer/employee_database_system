@@ -1,0 +1,6 @@
+#searchPositionForm {
+    background-color: #fff;
+    border: 2px solid rgba(0,0,0,1);
+    padding: 50px 100px;
+    box-shadow: 15px 15px 1px #6c757d, 15px 15px 1px 2px rgba(0,0,0,1)
+}

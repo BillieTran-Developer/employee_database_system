@@ -9,6 +9,7 @@ import EmployeeList from './pages/EmployeeList';
 import AddEmployee from './pages/AddEmployee';
 import EditEmployee from './pages/EditEmployee';
 import SearchEmployees from './pages/SearchEmployees'
+import SearchResults from './pages/SearchResults';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/add' element={<AddEmployee/>} />
           <Route path='/edit/:employeeId' element={<EditEmployee/>}/>
           <Route path='/search' element={<SearchEmployees/>}/>
+          <Route path='/searchresults' element={<SearchResults/>}/>
         </Routes>
       </Router>
     </div>

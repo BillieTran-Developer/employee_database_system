@@ -10,6 +10,11 @@ function ParticlePresetBigCircles() {
             "enable": true,
             "zIndex": -1
           },
+          "background": {
+            "color": {
+              "value": "#000"
+            },
+        }
     };
     
     const customInit = async (engine) => {

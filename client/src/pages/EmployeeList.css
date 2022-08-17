@@ -1,9 +1,16 @@
 #dataContainer {
     background: #c5c5c5;
+    background-image: url('../components/layout/assets/gradienta.jpg');
+    background-size: cover;
+    background-position: center;
     min-height: 100vh;
 }
 
-#dataContainer #homeButton {
-    border-radius: 0;
+#listContainer {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.966);
 }
 
+.listText {
+    background: rgba(61, 61, 61, 0.3);
+}

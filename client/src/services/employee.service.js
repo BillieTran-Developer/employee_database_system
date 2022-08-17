@@ -23,6 +23,7 @@ class EmployeeDataService {
         try {
             // Get data from backend
             const response = await Axios.get(`http://localhost:3001/employees`);
+            console.log(response)
             return { success: true, data: response.data}
         } catch(err) {
             console.log(err);
@@ -38,6 +39,25 @@ class EmployeeDataService {
             return {success: true, data: response.data}
         } catch(err) {
             console.log(err);
+            return {success: false}
+        }
+    }
+
+    // Name Get employee
+    getNameEmployee = async (firstName, lastName) => {
+        try {
+            console.log('123')
+            // Get data from backend
+            const response = await Axios.get(`http://localhost:3001/searchresults`,{
+                params: {
+                    first_name: `${firstName}`,
+                    last_name: `${lastName}`
+                }
+            });
+            console.log('getnameemployee')
+            return { success: true, data: response.data}
+        } catch(err) {
+            console.log('hello')
             return {success: false}
         }
     }

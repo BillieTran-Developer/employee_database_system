@@ -63,7 +63,7 @@ function EditEmployeeForm({employee}) {
                     </Row>
                     <Row>
                         <Form.Group as={Col} xs={9} controlId="position" className='mt-4 mb-4'>
-                            <Form.Select className='fw-bold'>
+                            <Form.Select className='fw-bold' value={editPosition} onChange={e => setEditPosition(e.target.value)}>
                                 <option>Cashier</option>
                                 <option>Chef</option>
                                 <option>Waiter</option>
@@ -78,7 +78,7 @@ function EditEmployeeForm({employee}) {
                         </Form.Group>
                     </Row>
                     <Button variant='outline-warning fw-bold' type='submit' className='mt-4'>
-                        Add Employee
+                        Update Employee
                     </Button>
                 </Form>
             )}

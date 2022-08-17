@@ -28,7 +28,6 @@ app.post('/add', (req, res) => {
     const lastName = req.body.lastName;
     const position = req.body.position;
     const salary = req.body.salary;
-    
     // Insert into db
     db.query(`INSERT INTO employees (first_name, last_Name, position, salary)
         VALUES(?, ?, ?, ?)`, 
@@ -99,11 +98,23 @@ app.put('/update', (req, res) => {
 app.get('/employees', (req, res) => {
     // Get data from MySQL 
     db.query(`SELECT * FROM employees`, (err, result) => {
-        if(err) {
-            console.log(err);
-        } else {
-            res.send(result);
-        }
+        err ? console.log(err) : res.send(result);
+    });
+});
+
+// Employee Search
+
+// Get employee by name
+app.get('/searchresults', (req, res) => {
+    // Retrieve name param from query
+    const firstName = req.query.first_name;
+    const lastName = req.query.last_name
+    // Get data from MySQL
+    db.query(`SELECT * FROM employees WHERE (first_name='${firstName}' AND last_name='${lastName}') OR 
+    first_name='${firstName}' OR 
+    last_name='${lastName}'`, 
+    (err, result) => {
+        err ? console.log(err) : res.send(result);
     });
 });
 

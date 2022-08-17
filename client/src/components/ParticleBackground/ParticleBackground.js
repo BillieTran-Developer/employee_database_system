@@ -1,5 +1,6 @@
 import Particles from "react-tsparticles";
 import particlesConfig from './config/particles-config';
+import starsConfig from './config/stars-config';
 import { loadFull } from "tsparticles";
 
 function ParticleBackground() {
@@ -16,7 +17,7 @@ function ParticleBackground() {
             id="tsparticles"
             init={particlesInit}
             loaded={particlesLoaded}
-            options={particlesConfig}
+            options={starsConfig}
     />
     )
 }

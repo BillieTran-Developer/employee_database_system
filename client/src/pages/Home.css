@@ -1,7 +1,9 @@
 #optionContainer {
     width: 500px;
-    height: 400px;
+    height: 600px;
     padding: 50px;
+    background: rgba(204, 204, 204, 0.308);
+    border: 15px solid #fff;
 }
 
 #optionContainer button {
