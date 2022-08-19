@@ -110,6 +110,8 @@ app.get('/searchresults', (req, res) => {
     const firstName = req.query.first_name;
     const lastName = req.query.last_name;
     const position = req.query.position;
+    const min = req.query.min;
+    const max = req.query.max;
 
     // Get data from MySQL
     if(firstName || lastName) {
@@ -124,7 +126,13 @@ app.get('/searchresults', (req, res) => {
         (err, result) => {
             err ? console.log(err) : res.send(result);
         });
-    }
+    } else if(min || max) {
+        db.query(`SELECT * FROM employees WHERE salary >= ${min} AND salary <= ${max}`, 
+        (err, result) => {
+            console.log(result);
+            err ? console.log(err) : res.send(result);
+        });
+    } 
 });
 
 // Set port, listen for requests

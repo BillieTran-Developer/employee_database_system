@@ -15,6 +15,8 @@ function SearchResults() {
     const firstName = params.get('first_name');
     const lastName = params.get('last_name');
     const position = params.get('position');
+    const min = params.get('min');
+    const max = params.get('max');
 
     useEffect (() => { 
         (async () => {
@@ -30,10 +32,15 @@ function SearchResults() {
             } else if(lastName) {
                 res = await EmployeeDataService.getNameEmployee('',lastName);
             } else if(position) {
-                console.log('position')
                 res = await EmployeeDataService.getNameEmployee('','', position);
-                console.log('position: after')
-                console.log(res);
+            } else if(min && max) {
+                if(min < max) {
+                    res = await EmployeeDataService.getNameEmployee('', '', '', min, max);
+                }
+            } else if(min) {
+                res = await EmployeeDataService.getNameEmployee('', '', '', min);
+            } else if(max) {
+                res = await EmployeeDataService.getNameEmployee('', '', '', '', max);
             }
             // When retrieving data is successful
             if (res.success) {

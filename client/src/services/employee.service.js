@@ -44,14 +44,16 @@ class EmployeeDataService {
     }
 
     // Name Get employee
-    getNameEmployee = async (firstName, lastName, position) => {
+    getNameEmployee = async (firstName, lastName, position, min, max) => {
         try {
             // Get data from backend
             const response = await Axios.get(`http://localhost:3001/searchresults`,{
                 params: {
                     first_name: `${firstName}`,
                     last_name: `${lastName}`,
-                    position: `${position}`
+                    position: `${position}`,
+                    min: `${min}`,
+                    max: `${max}`
                 }
             });
             console.log('from service:',response.data);
