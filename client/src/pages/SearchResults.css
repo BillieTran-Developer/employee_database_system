@@ -1,4 +1,4 @@
-#dataContainer {
+#resultContainer {
     background: #c5c5c5;
     background-image: url('../components/layout/assets/stars.png');
     background-size: cover;
@@ -6,11 +6,11 @@
     min-height: 100vh;
 }
 
-#listContainer {
+#resultListContainer {
     width: 100%;
     background: rgba(255, 255, 255, 0.966);
 }
 
-.listText {
+.resultText {
     background: rgba(61, 61, 61, 0.3);
 }

@@ -25,10 +25,10 @@ function SearchByName() {
         <Form id='searchNameForm' onSubmit={handleSubmit} className='mt-5'>
             <Row className='mb-3'>
                 <Form.Group as={Col} controlID='firstName'>
-                    <Form.Control type="text" placeholder='First Name' value={firstName} onChange={e => setFirstName(e.target.value)}/>
+                    <Form.Control id='firstName' type="text" placeholder='First Name' value={firstName} onChange={e => setFirstName(e.target.value)}/>
                 </Form.Group>
                 <Form.Group as={Col} controlID='lastName'>
-                    <Form.Control type="text" placeholder='Last Name' value={lastName} onChange={e => setLastName(e.target.value)}/>
+                    <Form.Control id='lastName' type="text" placeholder='Last Name' value={lastName} onChange={e => setLastName(e.target.value)}/>
                 </Form.Group>
             </Row>
             <Button variant='outline-secondary fw-bold' type='submit' className='mt-4'>

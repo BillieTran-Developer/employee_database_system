@@ -22,15 +22,15 @@ function SearchByPosition() {
     return(
          <Form id='searchPositionForm' onSubmit={handleSubmit} className='mt-5'>
             <Form.Group controlID='position'>
-                <Form.Select onChange={e => setPosition(e.target.value)}>
-                    <option>Select Position:</option>
+                <Form.Select id='position' onChange={e => setPosition(e.target.value)}>
+                    <option value="none" selected disabled hidden>Select Position:</option>
                     <option value="Cashier">Cashier</option>
                     <option value="Chef">Chef</option>
                     <option value="Waiter">Waiter</option>
                     <option value="Janitor">Janitor</option>
                 </Form.Select>
             </Form.Group>
-            <Button variant='outline-secondary fw-bold' type='submit' className='mt-4'>
+            <Button variant='outline-secondary fw-bold' type='submit' className='mt-5'>
                 Search
             </Button>
         </Form>

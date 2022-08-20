@@ -40,19 +40,19 @@ function EmployeeList() {
           <div className='listText mb-5'>
             <h1 className='text-light'>Employee Database {currentYear}</h1>
           </div>
-            <div id='listContainer'>
-              {/* Loading animation */}
-              {
-                  !listLoaded && <Loading/>
-              }
-              {/* Employee list */}
-              {
-                listLoaded && <EmployeeResult employeeList={employeeList} deleteEmployee={deleteEmployee}/> 
-              }
-            </div>
-            <Link to='/'>
-              <button id='addBackButton' className='fs-4 mt-5'>Home</button>
-            </Link>
+          <div id='listContainer'>
+            {/* Loading animation */}
+            {
+                !listLoaded && <Loading/>
+            }
+            {/* Employee list */}
+            {
+              listLoaded && <EmployeeResult employeeList={employeeList} deleteEmployee={deleteEmployee}/> 
+            }
+          </div>
+          <Link to='/'>
+            <button id='addBackButton' className='fs-4 mt-5'>Home</button>
+          </Link>
         </div>
     );
 }

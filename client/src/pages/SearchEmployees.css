@@ -34,3 +34,15 @@
     -ms-transform: rotate(360deg) scale(2);
     -webkit-transform: rotate(360deg) scale(2);
 }
+
+.nav-link {
+    color: #fff;
+}
+
+.nav-link:hover {
+    color: #FDD54F;
+}
+
+.nav-link.active {
+    color: #6C757D !important;
+}

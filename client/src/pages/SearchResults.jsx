@@ -1,5 +1,7 @@
+import './SearchResults.css';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import EmployeeResult from '../components/EmployeeResult';
 import EmployeeDataService from '../services/employee.service';
 
@@ -59,9 +61,18 @@ function SearchResults() {
       }
 
     return(
-        <div>
-            {(firstName || lastName) && <p className='h2'>Search Result for Employee Named: {`${firstName} ${lastName}`}</p>}
-            { listLoaded && <EmployeeResult employeeList={searchEmployeeList} delete={deleteEmployee}/> }
+        <div id='resultContainer' className='p-4'>
+            <div className='resultText mb-5'>
+                {(firstName || lastName) && <p className='h2 text-light'>Search Result for Employee Named: {`${firstName} ${lastName}`}</p>}
+                {(position) && <p className='h2 text-light'>Search Result for {`${position}`}:</p>}
+                {(min || max) && <p className='h2 text-light'>Search Result for Employee Salary Between: {`$${min} - $${max}`}</p>}
+            </div>
+            <div id='resultListContainer'>
+                { listLoaded && <EmployeeResult employeeList={searchEmployeeList} delete={deleteEmployee}/> }
+            </div>
+            <Link to='/'>
+                <button id='addBackButton' className='fs-4 mt-5'>Home</button>
+            </Link>
         </div>
     );
 }
